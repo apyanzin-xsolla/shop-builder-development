@@ -1,6 +1,0 @@
-[submodule "ab-testing"]
-	path = ab-testing
-	url = https://github.com/Andrew-Pyanzin/ab-testing.git
-[submodule "system-design"]
-	path = system-design
-	url = https://github.com/Andrew-Pyanzin/system-design.git
