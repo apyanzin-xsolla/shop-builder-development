@@ -53,7 +53,7 @@ const metricDefinitions = [
 
 const finalRows = [
   ["AI Kit", "1,811", "80%", "0", "0", "0", "Use for ready skills"],
-  ["Docs/MCP baseline", "1,978", "67.8%", "2", "2", "0", "Good fallback"],
+  ["Docs baseline", "1,978", "67.8%", "2", "2", "0", "Good fallback"],
   ["No-context baseline", "2,785", "53.8%", "4", "6", "1", "Not enough for prod"],
 ] as const;
 
@@ -79,7 +79,7 @@ function DecisionDiagram() {
       <Stack gap={6} style={box}>
         <Text weight="semibold">Choose variant</Text>
         <Text size="small" tone="secondary">
-          AI Kit vs Docs/MCP vs no context.
+          AI Kit vs docs baseline vs no context.
         </Text>
       </Stack>
       <Text style={arrow}>→</Text>
@@ -110,7 +110,7 @@ export default function AiKitEvalDashboard() {
       <Stack gap={6}>
         <H1>Xsolla AI Kit Metrics Dashboard</H1>
         <Text tone="secondary">
-          Evaluation of AI Kit skills against Docs/MCP baseline and no-context baseline.
+          Evaluation of AI Kit skills against docs baseline and no-context baseline.
           Goal: prove practical value through cost, correction, safety, and production-risk metrics.
           Source: actual subagent transcripts; token counts are deterministic estimates from real prompt and response text.
         </Text>
@@ -120,7 +120,7 @@ export default function AiKitEvalDashboard() {
         <Stat value="62.7%" label="Avg AI Kit efficiency gain" tone="success" />
         <Stat value="34.6%" label="All-run token reduction" tone="success" />
         <Stat value="80%" label="Validated AI Kit confidence" tone="success" />
-        <Stat value={`${prodDocsReduction}%`} label="Token reduction vs Docs/MCP" tone="info" />
+        <Stat value={`${prodDocsReduction}%`} label="Token reduction vs docs" tone="info" />
       </Grid>
 
       <Stack gap={8}>
@@ -189,7 +189,7 @@ export default function AiKitEvalDashboard() {
               categories={productionCases}
               series={[
                 { name: "AI Kit", data: prodRiskAi, tone: "success" },
-                { name: "Docs/MCP baseline", data: prodRiskDocs, tone: "info" },
+                { name: "Docs baseline", data: prodRiskDocs, tone: "info" },
                 { name: "No-context baseline", data: prodRiskNoContext, tone: "warning" },
               ]}
               height={260}
@@ -208,7 +208,7 @@ export default function AiKitEvalDashboard() {
               Lower is better. Source: production-informed pilot.
             </Text>
             <BarChart
-              categories={["AI Kit", "Docs/MCP", "No context"]}
+              categories={["AI Kit", "Docs", "No context"]}
               series={[
                 { name: "Clarifications", data: prodClarifications, tone: "info" },
                 { name: "Manual corrections", data: prodCorrections, tone: "warning" },
@@ -229,7 +229,7 @@ export default function AiKitEvalDashboard() {
               Source: production-informed pilot.
             </Text>
             <BarChart
-              categories={["AI Kit", "Docs/MCP", "No context"]}
+              categories={["AI Kit", "Docs", "No context"]}
               series={[{ name: "Safety errors", data: prodSafety, tone: "danger" }]}
               height={230}
               showValues
@@ -277,10 +277,10 @@ export default function AiKitEvalDashboard() {
         <CardHeader>Final Decision</CardHeader>
         <CardBody>
           <Stack gap={8}>
-            <H3>Use AI Kit for ready skills; keep Docs/MCP as the fair baseline.</H3>
+            <H3>Use AI Kit for ready skills; keep docs as the fair baseline.</H3>
             <Text>
               AI Kit wins strongly against no-context baseline and still improves production-risk
-              confidence against Docs/MCP baseline. Main value: fewer missed failure modes and fewer
+              confidence against docs baseline. Main value: fewer missed failure modes and fewer
               correction loops, not only token savings.
             </Text>
             <Row gap={8} wrap>
