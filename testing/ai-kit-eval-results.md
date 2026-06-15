@@ -8,19 +8,21 @@ Full details:
 
 - `ai-kit-ab-pilot-results.md`
 - `ai-kit-production-informed-results.md`
+- `ai-kit-real-eval-runs.json`
+- `ai-kit-real-eval-score.json`
 
 ## Result
 
 ### Prompt-Only Pilot
 
-Average AI Kit Efficiency Gain: `67.7%`.
+Average AI Kit Efficiency Gain: `67.2%` vs no-context baseline.
 
-Total estimated tokens to accepted result:
+Transcript-derived estimated tokens to accepted result:
 
-- AI Kit: `3,230`
-- Baseline without AI Kit: `5,920`
-- Saved: `2,690 tokens`
-- Token reduction: `45.4%`
+- AI Kit: `4,191`
+- Baseline without AI Kit: `7,188`
+- Saved: `2,997 tokens`
+- Token reduction: `41.7%`
 
 Clarification turns:
 
@@ -56,14 +58,14 @@ Aggregate result:
 
 | Variant | Tokens To Accept | Avg Checklist Pass | Clarifications | Corrections | Safety Errors | Production-Risk Coverage |
 |---|---:|---:|---:|---:|---:|---:|
-| AI Kit | 1,035 | 100% | 0 | 0 | 0 | 100% |
-| Docs/MCP baseline | 1,180 | 82.5% | 2 | 2 | 0 | 82.5% |
-| No-context baseline | 2,250 | 62.5% | 4 | 6 | 1 | 62.5% |
+| AI Kit | 1,811 | 100% | 0 | 0 | 0 | 100% |
+| Docs/MCP baseline | 1,978 | 82.5% | 2 | 2 | 0 | 82.5% |
+| No-context baseline | 2,785 | 62.5% | 4 | 6 | 1 | 62.5% |
 
 AI Kit impact:
 
-- vs no-context: `54.0%` estimated token reduction, `+37.5 pp` production-risk coverage.
-- vs Docs/MCP baseline: `12.3%` estimated token reduction, `+17.5 pp` production-risk coverage.
+- vs no-context: `35.0%` estimated token reduction, `+37.5 pp` production-risk coverage.
+- vs Docs/MCP baseline: `8.4%` estimated token reduction, `+17.5 pp` production-risk coverage.
 
 ## Decision
 
@@ -98,7 +100,7 @@ This is a pilot result:
 
 - Prompt-only pilot: `n=1` paired run per ready skill.
 - Production-informed pilot: `n=2` real-risk cases, 3 variants.
-- Token counts are estimated because provider token telemetry is not exposed by the subagent API.
+- Token counts are deterministic estimates from actual subagent transcript prompt/response text because provider token telemetry is not exposed.
 - No live sandbox API calls were executed.
 
 For launch confidence, rerun with:

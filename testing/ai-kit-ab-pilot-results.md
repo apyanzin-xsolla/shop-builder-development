@@ -12,12 +12,12 @@ Variants:
 Important limitation:
 
 - Provider token telemetry is not exposed by the subagent API.
-- Token counts below are estimates using `tokens ~= characters / 4`, plus estimated correction-turn budget required to reach accepted output.
+- Token counts below are deterministic estimates from actual subagent transcript prompt/response text, plus correction-turn budget required to reach accepted output.
 - This is a pilot result (`n=1` per ready skill), not a launch-quality `n=10` eval.
 
 ## Primary Result
 
-Average AI Kit Efficiency Gain across 4 ready skills: `67.7%`.
+Average AI Kit Efficiency Gain across 4 ready skills: `67.2%`.
 
 Formula:
 
@@ -39,19 +39,19 @@ Decision threshold:
 
 | Case | AI Kit Tokens To Accept | Baseline Tokens To Accept | Token Reduction | AI Kit Clarifications | Baseline Clarifications | AI Kit Checklist | Baseline Checklist | Safety Errors AI Kit / Baseline | Efficiency Gain | Decision |
 |---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---|
-| Merchant setup | 420 | 880 | 52% | 0 | 2 | 100% | 38% | 0 / 0 | 69.9% | Use AI Kit |
-| Shop orchestration | 1,000 | 2,170 | 54% | 0 | 2 | 100% | 63% | 0 / 0 | 66.8% | Use AI Kit |
-| Catalog design | 720 | 1,150 | 37% | 0 | 2 | 100% | 63% | 0 / 0 | 61.7% | Use AI Kit |
-| Webhooks implementation | 1,090 | 1,720 | 37% | 0 | 2 | 100% | 56% | 0 / 2 | 72.7% | Use AI Kit |
+| Merchant setup | 534 | 1,397 | 62% | 0 | 2 | 100% | 38% | 0 / 0 | 72.8% | Use AI Kit |
+| Shop orchestration | 1,183 | 2,087 | 43% | 0 | 2 | 100% | 63% | 0 / 0 | 63.5% | Use AI Kit |
+| Catalog design | 1,039 | 1,717 | 39% | 0 | 2 | 100% | 63% | 0 / 0 | 62.4% | Use AI Kit |
+| Webhooks implementation | 1,435 | 1,987 | 28% | 0 | 2 | 100% | 56% | 0 / 2 | 69.9% | Use AI Kit |
 
 ## What AI Kit Saved
 
 Total estimated tokens to accepted result:
 
-- AI Kit: `3,230`
-- Baseline: `5,920`
-- Estimated saving: `2,690 tokens`
-- Reduction: `45.4%`
+- AI Kit: `4,191`
+- Baseline: `7,188`
+- Estimated saving: `2,997 tokens`
+- Reduction: `41.7%`
 
 Clarification turns:
 

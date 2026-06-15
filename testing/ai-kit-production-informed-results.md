@@ -53,9 +53,9 @@ Result:
 
 | Variant | Tokens To Accept | Clarifications | Corrections | Checklist Pass | Safety Errors | Production-Risk Coverage |
 |---|---:|---:|---:|---:|---:|---:|
-| AI Kit | 460 | 0 | 0 | 100% | 0 | 100% |
-| Docs/MCP baseline | 590 | 1 | 1 | 80% | 0 | 80% |
-| No-context baseline | 1,050 | 2 | 3 | 55% | 0 | 55% |
+| AI Kit | 1,069 | 0 | 0 | 100% | 0 | 100% |
+| Docs/MCP baseline | 1,169 | 1 | 1 | 80% | 0 | 80% |
+| No-context baseline | 1,430 | 2 | 3 | 55% | 0 | 55% |
 
 AI Kit advantage:
 
@@ -88,9 +88,9 @@ Result:
 
 | Variant | Tokens To Accept | Clarifications | Corrections | Checklist Pass | Safety Errors | Production-Risk Coverage |
 |---|---:|---:|---:|---:|---:|---:|
-| AI Kit | 575 | 0 | 0 | 100% | 0 | 100% |
-| Docs/MCP baseline | 590 | 1 | 1 | 85% | 0 | 85% |
-| No-context baseline | 1,200 | 2 | 3 | 70% | 1 | 70% |
+| AI Kit | 742 | 0 | 0 | 100% | 0 | 100% |
+| Docs/MCP baseline | 809 | 1 | 1 | 85% | 0 | 85% |
+| No-context baseline | 1,355 | 2 | 3 | 70% | 1 | 70% |
 
 AI Kit advantage:
 
@@ -102,14 +102,14 @@ AI Kit advantage:
 
 | Variant | Total Tokens To Accept | Avg Checklist Pass | Clarifications | Corrections | Safety Errors | Avg Production-Risk Coverage |
 |---|---:|---:|---:|---:|---:|---:|
-| AI Kit | 1,035 | 100% | 0 | 0 | 0 | 100% |
-| Docs/MCP baseline | 1,180 | 82.5% | 2 | 2 | 0 | 82.5% |
-| No-context baseline | 2,250 | 62.5% | 4 | 6 | 1 | 62.5% |
+| AI Kit | 1,811 | 100% | 0 | 0 | 0 | 100% |
+| Docs/MCP baseline | 1,978 | 82.5% | 2 | 2 | 0 | 82.5% |
+| No-context baseline | 2,785 | 62.5% | 4 | 6 | 1 | 62.5% |
 
 Token impact:
 
-- AI Kit vs no-context: saves `1,215` estimated tokens, `54.0%` reduction.
-- AI Kit vs Docs/MCP baseline: saves `145` estimated tokens, `12.3%` reduction.
+- AI Kit vs no-context: saves `974` estimated tokens, `35.0%` reduction.
+- AI Kit vs Docs/MCP baseline: saves `167` estimated tokens, `8.4%` reduction.
 
 Quality impact:
 

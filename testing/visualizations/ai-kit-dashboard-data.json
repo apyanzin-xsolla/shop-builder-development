@@ -1,50 +1,7 @@
 {
-  "summary": {
-    "avg_ai_kit_efficiency_gain_pct": 67.7,
-    "prompt_only_token_reduction_vs_no_context_pct": 45.4,
-    "production_risk_coverage_ai_kit_pct": 100,
-    "production_token_reduction_vs_docs_mcp_pct": 12.3,
-    "decision": "Use AI Kit for ready skills; keep Docs/MCP as the fair baseline."
-  },
-  "ready_skills": [
-    "merchant-setup",
-    "shop-setup",
-    "catalog-design",
-    "webhooks-impl"
-  ],
-  "excluded_skills": [
-    "login-setup",
-    "payments-config",
-    "store-build",
-    "shop-design"
-  ],
-  "metric_definitions": [
-    {
-      "metric": "Tokens to accepted result",
-      "description": "Estimated input + output tokens until answer passes checklist."
-    },
-    {
-      "metric": "Clarifications",
-      "description": "Extra user turns required before agent gives usable result."
-    },
-    {
-      "metric": "Manual corrections",
-      "description": "Human fixes for endpoint, auth, phase, safety, or implementation mistakes."
-    },
-    {
-      "metric": "Checklist pass rate",
-      "description": "Required checks passed / total required checks."
-    },
-    {
-      "metric": "Safety errors",
-      "description": "Critical unsafe output: secret leak, wrong auth, unsafe webhook, double grant risk."
-    },
-    {
-      "metric": "Production-risk coverage",
-      "description": "Known production failure modes covered by the answer."
-    }
-  ],
-  "prompt_only_skill_pilot": {
+  "avg_efficiency_gain_pct": 62.7,
+  "token_reduction_all_pct": 34.6,
+  "prompt_only": {
     "cases": [
       "Merchant",
       "Shop",
@@ -52,16 +9,16 @@
       "Webhooks"
     ],
     "ai_kit_tokens": [
-      420,
-      1000,
-      720,
-      1090
+      534,
+      1183,
+      1039,
+      1435
     ],
     "no_context_tokens": [
-      880,
-      2170,
-      1150,
-      1720
+      1397,
+      2087,
+      1717,
+      1987
     ],
     "ai_kit_checklist_pass_pct": [
       100,
@@ -75,41 +32,29 @@
       63,
       56
     ],
-    "ai_kit_safety_errors": [
-      0,
-      0,
-      0,
-      0
-    ],
-    "no_context_safety_errors": [
-      0,
-      0,
-      0,
-      2
-    ],
     "ai_kit_efficiency_gain_pct": [
-      69.9,
-      66.8,
-      61.7,
-      72.7
+      72.8,
+      63.5,
+      62.4,
+      69.9
     ]
   },
-  "production_informed_pilot": {
+  "production": {
     "cases": [
       "Catalog pricing",
       "Webhook 500s"
     ],
     "ai_kit_tokens": [
-      460,
-      575
+      1069,
+      742
     ],
     "docs_mcp_tokens": [
-      590,
-      590
+      1169,
+      809
     ],
     "no_context_tokens": [
-      1050,
-      1200
+      1430,
+      1355
     ],
     "ai_kit_risk_coverage_pct": [
       100,
@@ -123,49 +68,20 @@
       55,
       70
     ],
-    "clarifications": {
-      "ai_kit": 0,
-      "docs_mcp": 2,
-      "no_context": 4
-    },
-    "manual_corrections": {
-      "ai_kit": 0,
-      "docs_mcp": 2,
-      "no_context": 6
-    },
-    "safety_errors": {
-      "ai_kit": 0,
-      "docs_mcp": 0,
-      "no_context": 1
-    }
-  },
-  "production_decision_table": [
-    {
-      "variant": "AI Kit",
-      "tokens_to_accept": 1035,
-      "risk_coverage_pct": 100,
-      "clarifications": 0,
-      "manual_corrections": 0,
-      "safety_errors": 0,
-      "decision": "Use for ready skills"
-    },
-    {
-      "variant": "Docs/MCP baseline",
-      "tokens_to_accept": 1180,
-      "risk_coverage_pct": 82.5,
-      "clarifications": 2,
-      "manual_corrections": 2,
-      "safety_errors": 0,
-      "decision": "Good fallback"
-    },
-    {
-      "variant": "No-context baseline",
-      "tokens_to_accept": 2250,
-      "risk_coverage_pct": 62.5,
-      "clarifications": 4,
-      "manual_corrections": 6,
-      "safety_errors": 1,
-      "decision": "Not enough for prod"
-    }
-  ]
+    "clarifications": [
+      0,
+      2,
+      4
+    ],
+    "manual_corrections": [
+      0,
+      2,
+      6
+    ],
+    "safety_errors": [
+      0,
+      0,
+      1
+    ]
+  }
 }
