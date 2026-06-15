@@ -1,5 +1,33 @@
 # AI Kit Eval Scripts
 
+## `ai_kit_eval.py`
+
+Single reusable script for future AI Kit skills.
+
+It scores eval runs and generates:
+
+- Markdown report
+- scored JSON
+- dashboard data JSON
+- Cursor Canvas dashboard source with the same visualization style
+
+Run:
+
+```bash
+python3 testing/scripts/ai_kit_eval.py testing/ai-kit-real-eval-runs.json --out-dir testing/generated-eval
+```
+
+Expected output:
+
+```text
+testing/generated-eval/ai-kit-eval-report.md
+testing/generated-eval/ai-kit-eval-score.json
+testing/generated-eval/visualizations/ai-kit-dashboard-data.json
+testing/generated-eval/visualizations/ai-kit-eval-dashboard.canvas.tsx
+```
+
+This is the script to copy into `xsolla-ai-kit` for the next skills.
+
 ## `score_ai_kit_eval.py`
 
 Scores AI Kit eval runs from JSON.
@@ -10,7 +38,7 @@ Run against no-context baseline:
 python3 testing/scripts/score_ai_kit_eval.py testing/ai-kit-eval-runs.sample.json --baseline no_context
 ```
 
-Run against Docs/MCP baseline:
+Run against docs baseline:
 
 ```bash
 python3 testing/scripts/score_ai_kit_eval.py testing/ai-kit-eval-runs.sample.json --baseline docs_mcp
