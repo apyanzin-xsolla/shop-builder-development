@@ -41,7 +41,7 @@ AI Kit Efficiency Gain =
   0.30 * Token Reduction %
 + 0.25 * Clarification Reduction %
 + 0.20 * Manual Correction Reduction %
-+ 0.15 * Checklist Pass Rate Delta
++ 0.15 * Validated Confidence Delta
 + 0.10 * Safety Error Reduction %
 ```
 
@@ -50,7 +50,8 @@ Measured per run:
 - Tokens to accepted result.
 - Clarification turns.
 - Manual corrections.
-- Checklist pass rate.
+- Skill-rubric checklist pass rate.
+- Validated confidence rate.
 - Safety errors.
 - Production-risk coverage.
 
@@ -78,9 +79,9 @@ Use AI Kit for a skill if:
 - Token reduction is at least `20%`, or quality improves while token cost stays neutral.
 - Clarifications reduce by at least `50%`.
 - Manual corrections reduce by at least `50%`.
-- Checklist pass rate is at least `90%`.
+- Validated confidence rate is at least `85%`.
 - Safety errors are `0`.
-- Production-risk coverage improves vs Docs/MCP baseline.
+- Production-risk validated confidence improves vs Docs/MCP baseline.
 
 ## Current Pilot Result
 
@@ -94,7 +95,7 @@ Prompt-only pilot:
 
 Production-informed pilot:
 
-- AI Kit: `100%` production-risk coverage.
+- AI Kit: `80%` validated production-risk confidence in the current pilot.
 - Docs/MCP baseline: `82.5%`.
 - No-context baseline: `62.5%`.
 

@@ -11,9 +11,11 @@
     "baseline_corrections": 4,
     "ai_checklist": 100.0,
     "baseline_checklist": 63.0,
+    "ai_validated_confidence": 80.0,
+    "baseline_validated_confidence": 54.1,
     "ai_safety_errors": 0,
     "baseline_safety_errors": 0,
-    "efficiency_gain": 62.3962434478742,
+    "efficiency_gain": 60.7312434478742,
     "decision": "Use AI Kit"
   },
   {
@@ -28,9 +30,11 @@
     "baseline_corrections": 3,
     "ai_checklist": 100.0,
     "baseline_checklist": 38.0,
+    "ai_validated_confidence": 80.0,
+    "baseline_validated_confidence": 36.6,
     "ai_safety_errors": 0,
     "baseline_safety_errors": 0,
-    "efficiency_gain": 72.83256979241231,
+    "efficiency_gain": 70.04256979241232,
     "decision": "Use AI Kit"
   },
   {
@@ -45,9 +49,11 @@
     "baseline_corrections": 1,
     "ai_checklist": 100.0,
     "baseline_checklist": 80.0,
+    "ai_validated_confidence": 80.0,
+    "baseline_validated_confidence": 66.0,
     "ai_safety_errors": 0,
     "baseline_safety_errors": 0,
-    "efficiency_gain": 50.56629597946963,
+    "efficiency_gain": 49.66629597946963,
     "decision": "Use AI Kit"
   },
   {
@@ -62,9 +68,11 @@
     "baseline_corrections": 3,
     "ai_checklist": 100.0,
     "baseline_checklist": 55.0,
+    "ai_validated_confidence": 80.0,
+    "baseline_validated_confidence": 48.5,
     "ai_safety_errors": 0,
     "baseline_safety_errors": 0,
-    "efficiency_gain": 59.32342657342657,
+    "efficiency_gain": 57.298426573426575,
     "decision": "Use AI Kit"
   },
   {
@@ -79,9 +87,11 @@
     "baseline_corrections": 1,
     "ai_checklist": 100.0,
     "baseline_checklist": 85.0,
+    "ai_validated_confidence": 80.0,
+    "baseline_validated_confidence": 69.5,
     "ai_safety_errors": 0,
     "baseline_safety_errors": 0,
-    "efficiency_gain": 49.73454882571075,
+    "efficiency_gain": 49.059548825710756,
     "decision": "Use AI Kit"
   },
   {
@@ -96,9 +106,11 @@
     "baseline_corrections": 3,
     "ai_checklist": 100.0,
     "baseline_checklist": 70.0,
+    "ai_validated_confidence": 80.0,
+    "baseline_validated_confidence": 59.0,
     "ai_safety_errors": 0,
     "baseline_safety_errors": 1,
-    "efficiency_gain": 73.0719557195572,
+    "efficiency_gain": 71.7219557195572,
     "decision": "Use AI Kit"
   },
   {
@@ -113,9 +125,11 @@
     "baseline_corrections": 3,
     "ai_checklist": 100.0,
     "baseline_checklist": 63.0,
+    "ai_validated_confidence": 80.0,
+    "baseline_validated_confidence": 54.1,
     "ai_safety_errors": 0,
     "baseline_safety_errors": 0,
-    "efficiency_gain": 63.544729276473404,
+    "efficiency_gain": 61.879729276473405,
     "decision": "Use AI Kit"
   },
   {
@@ -130,9 +144,11 @@
     "baseline_corrections": 4,
     "ai_checklist": 100.0,
     "baseline_checklist": 56.0,
+    "ai_validated_confidence": 80.0,
+    "baseline_validated_confidence": 49.2,
     "ai_safety_errors": 0,
     "baseline_safety_errors": 2,
-    "efficiency_gain": 69.93417211877201,
+    "efficiency_gain": 67.95417211877202,
     "decision": "Use AI Kit"
   }
 ]

@@ -51,11 +51,11 @@ Required production-risk checks:
 
 Result:
 
-| Variant | Tokens To Accept | Clarifications | Corrections | Checklist Pass | Safety Errors | Production-Risk Coverage |
+| Variant | Tokens To Accept | Clarifications | Corrections | Skill Rubric | Validated Confidence | Safety Errors |
 |---|---:|---:|---:|---:|---:|---:|
-| AI Kit | 1,069 | 0 | 0 | 100% | 0 | 100% |
-| Docs/MCP baseline | 1,169 | 1 | 1 | 80% | 0 | 80% |
-| No-context baseline | 1,430 | 2 | 3 | 55% | 0 | 55% |
+| AI Kit | 1,069 | 0 | 0 | 100% | 80% | 0 |
+| Docs/MCP baseline | 1,169 | 1 | 1 | 80% | 66% | 0 |
+| No-context baseline | 1,430 | 2 | 3 | 55% | 48.5% | 0 |
 
 AI Kit advantage:
 
@@ -86,11 +86,11 @@ Required production-risk checks:
 
 Result:
 
-| Variant | Tokens To Accept | Clarifications | Corrections | Checklist Pass | Safety Errors | Production-Risk Coverage |
+| Variant | Tokens To Accept | Clarifications | Corrections | Skill Rubric | Validated Confidence | Safety Errors |
 |---|---:|---:|---:|---:|---:|---:|
-| AI Kit | 742 | 0 | 0 | 100% | 0 | 100% |
-| Docs/MCP baseline | 809 | 1 | 1 | 85% | 0 | 85% |
-| No-context baseline | 1,355 | 2 | 3 | 70% | 1 | 70% |
+| AI Kit | 742 | 0 | 0 | 100% | 80% | 0 |
+| Docs/MCP baseline | 809 | 1 | 1 | 85% | 69.5% | 0 |
+| No-context baseline | 1,355 | 2 | 3 | 70% | 59% | 1 |
 
 AI Kit advantage:
 
@@ -100,11 +100,11 @@ AI Kit advantage:
 
 ## Aggregate Result
 
-| Variant | Total Tokens To Accept | Avg Checklist Pass | Clarifications | Corrections | Safety Errors | Avg Production-Risk Coverage |
+| Variant | Total Tokens To Accept | Avg Skill Rubric | Avg Validated Confidence | Clarifications | Corrections | Safety Errors |
 |---|---:|---:|---:|---:|---:|---:|
-| AI Kit | 1,811 | 100% | 0 | 0 | 0 | 100% |
-| Docs/MCP baseline | 1,978 | 82.5% | 2 | 2 | 0 | 82.5% |
-| No-context baseline | 2,785 | 62.5% | 4 | 6 | 1 | 62.5% |
+| AI Kit | 1,811 | 100% | 80% | 0 | 0 | 0 |
+| Docs/MCP baseline | 1,978 | 82.5% | 67.8% | 2 | 2 | 0 |
+| No-context baseline | 2,785 | 62.5% | 53.8% | 4 | 6 | 1 |
 
 Token impact:
 
@@ -113,14 +113,14 @@ Token impact:
 
 Quality impact:
 
-- AI Kit vs no-context: `+37.5 pp` checklist pass rate.
-- AI Kit vs Docs/MCP baseline: `+17.5 pp` checklist pass rate.
+- AI Kit vs no-context: `+26.2 pp` validated confidence.
+- AI Kit vs Docs/MCP baseline: `+12.2 pp` validated confidence.
 
 Production-risk impact:
 
-- AI Kit covered `100%` of tested risk checks.
-- Docs/MCP baseline covered `82.5%`.
-- No-context baseline covered `62.5%`.
+- AI Kit covered `100%` of skill-rubric checks, but validated confidence is `80%` until SME and sandbox validation.
+- Docs/MCP baseline validated confidence is `67.8%`.
+- No-context baseline validated confidence is `53.8%`.
 
 ## Decision
 

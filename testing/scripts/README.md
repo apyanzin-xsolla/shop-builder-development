@@ -55,7 +55,8 @@ The script prints a Markdown table with:
 - AI Kit tokens.
 - Baseline tokens.
 - Token reduction.
-- Checklist pass delta.
+- Skill-rubric checklist delta.
+- Validated confidence delta.
 - Safety errors.
 - AI Kit Efficiency Gain.
 - Decision.

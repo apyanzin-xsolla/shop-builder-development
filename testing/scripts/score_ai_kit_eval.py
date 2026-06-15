@@ -14,6 +14,7 @@ Input: JSON with either:
       "clarification_turns": 0,
       "manual_corrections": 0,
       "checklist_pass_rate": 100,
+      "validated_confidence_rate": 75,
       "safety_errors": 0
     }
   ]
@@ -51,6 +52,7 @@ class Run:
     clarification_turns: int
     manual_corrections: int
     checklist_pass_rate: float
+    validated_confidence_rate: float
     safety_errors: int
 
 
@@ -91,6 +93,9 @@ def load_runs(path: Path) -> list[Run]:
                 clarification_turns=as_int(item.get("clarification_turns")),
                 manual_corrections=as_int(item.get("manual_corrections")),
                 checklist_pass_rate=as_float(item.get("checklist_pass_rate")),
+                validated_confidence_rate=as_float(
+                    item.get("validated_confidence_rate", item.get("checklist_pass_rate"))
+                ),
                 safety_errors=as_int(item.get("safety_errors")),
             )
         )
@@ -112,7 +117,7 @@ def compare(ai: Run, baseline: Run) -> dict[str, Any]:
     correction_reduction = pct_reduction(
         baseline.manual_corrections, ai.manual_corrections
     )
-    checklist_delta = ai.checklist_pass_rate - baseline.checklist_pass_rate
+    checklist_delta = ai.validated_confidence_rate - baseline.validated_confidence_rate
     safety_reduction = pct_reduction(baseline.safety_errors, ai.safety_errors)
 
     efficiency_gain = (
@@ -135,6 +140,8 @@ def compare(ai: Run, baseline: Run) -> dict[str, Any]:
         "baseline_corrections": baseline.manual_corrections,
         "ai_checklist": ai.checklist_pass_rate,
         "baseline_checklist": baseline.checklist_pass_rate,
+        "ai_validated_confidence": ai.validated_confidence_rate,
+        "baseline_validated_confidence": baseline.validated_confidence_rate,
         "ai_safety_errors": ai.safety_errors,
         "baseline_safety_errors": baseline.safety_errors,
         "efficiency_gain": efficiency_gain,
@@ -176,17 +183,17 @@ def render_markdown(rows: list[dict[str, Any]]) -> str:
         "  0.30 * Token Reduction %",
         "+ 0.25 * Clarification Reduction %",
         "+ 0.20 * Manual Correction Reduction %",
-        "+ 0.15 * Checklist Pass Rate Delta",
+        "+ 0.15 * Validated Confidence Delta",
         "+ 0.10 * Safety Error Reduction %",
         "```",
         "",
-        "| Case | Baseline | AI tokens | Baseline tokens | Token reduction | Checklist AI/Baseline | Safety AI/Baseline | Gain | Decision |",
-        "|---|---|---:|---:|---:|---:|---:|---:|---|",
+        "| Case | Baseline | AI tokens | Baseline tokens | Token reduction | Skill checklist AI/Baseline | Validated confidence AI/Baseline | Safety AI/Baseline | Gain | Decision |",
+        "|---|---|---:|---:|---:|---:|---:|---:|---:|---|",
     ]
 
     for row in rows:
         lines.append(
-            "| {case_id} | {baseline} | {ai_tokens:,} | {baseline_tokens:,} | {token_reduction} | {ai_checklist:.1f}% / {baseline_checklist:.1f}% | {ai_safety_errors} / {baseline_safety_errors} | {gain} | {decision} |".format(
+            "| {case_id} | {baseline} | {ai_tokens:,} | {baseline_tokens:,} | {token_reduction} | {ai_checklist:.1f}% / {baseline_checklist:.1f}% | {ai_confidence:.1f}% / {baseline_confidence:.1f}% | {ai_safety_errors} / {baseline_safety_errors} | {gain} | {decision} |".format(
                 case_id=row["case_id"],
                 baseline=row["baseline"],
                 ai_tokens=row["ai_tokens"],
@@ -194,6 +201,8 @@ def render_markdown(rows: list[dict[str, Any]]) -> str:
                 token_reduction=format_pct(row["token_reduction_pct"]),
                 ai_checklist=row["ai_checklist"],
                 baseline_checklist=row["baseline_checklist"],
+                ai_confidence=row["ai_validated_confidence"],
+                baseline_confidence=row["baseline_validated_confidence"],
                 ai_safety_errors=row["ai_safety_errors"],
                 baseline_safety_errors=row["baseline_safety_errors"],
                 gain=format_pct(row["efficiency_gain"]),

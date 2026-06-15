@@ -24,6 +24,8 @@ const promptAiTokens = [534, 1183, 1039, 1435];
 const promptBaselineTokens = [1397, 2087, 1717, 1987];
 const promptChecklistAi = [100, 100, 100, 100];
 const promptChecklistBaseline = [38, 63, 63, 56];
+const promptConfidenceAi = [80, 80, 80, 80];
+const promptConfidenceBaseline = [36.6, 54.1, 54.1, 49.2];
 const promptSafetyAi = [0, 0, 0, 0];
 const promptSafetyBaseline = [0, 0, 0, 2];
 const promptEfficiencyGain = [72.8, 63.5, 62.4, 69.9];
@@ -32,9 +34,9 @@ const productionCases = ["Catalog pricing", "Webhook 500s"];
 const prodAiTokens = [1069, 742];
 const prodDocsTokens = [1169, 809];
 const prodNoContextTokens = [1430, 1355];
-const prodRiskAi = [100, 100];
-const prodRiskDocs = [80, 85];
-const prodRiskNoContext = [55, 70];
+const prodRiskAi = [80, 80];
+const prodRiskDocs = [66, 69.5];
+const prodRiskNoContext = [48.5, 59];
 const prodClarifications = [0, 2, 4];
 const prodCorrections = [0, 2, 6];
 const prodSafety = [0, 0, 1];
@@ -43,15 +45,16 @@ const metricDefinitions = [
   ["Tokens to accepted result", "Estimated input + output tokens until answer passes checklist."],
   ["Clarifications", "Extra user turns required before agent gives usable result."],
   ["Manual corrections", "Human fixes for endpoint, auth, phase, safety, or implementation mistakes."],
-  ["Checklist pass rate", "Required checks passed / total required checks."],
+  ["Skill-rubric coverage", "Required skill checks covered by the answer; useful but self-referential."],
+  ["Validated confidence", "Adjusted confidence after SME and sandbox status; current AI Kit pilot is 80%, not 100%."],
   ["Safety errors", "Critical unsafe output: secret leak, wrong auth, unsafe webhook, double grant risk."],
   ["Production-risk coverage", "Known production failure modes covered by the answer."],
 ] as const;
 
 const finalRows = [
-  ["AI Kit", "1,035", "100%", "0", "0", "0", "Use for ready skills"],
-  ["Docs/MCP baseline", "1,180", "82.5%", "2", "2", "0", "Good fallback"],
-  ["No-context baseline", "2,250", "62.5%", "4", "6", "1", "Not enough for prod"],
+  ["AI Kit", "1,811", "80%", "0", "0", "0", "Use for ready skills"],
+  ["Docs/MCP baseline", "1,978", "67.8%", "2", "2", "0", "Good fallback"],
+  ["No-context baseline", "2,785", "53.8%", "4", "6", "1", "Not enough for prod"],
 ] as const;
 
 function DecisionDiagram() {
@@ -116,7 +119,7 @@ export default function AiKitEvalDashboard() {
       <Grid columns={4} gap={12}>
         <Stat value="62.7%" label="Avg AI Kit efficiency gain" tone="success" />
         <Stat value="34.6%" label="All-run token reduction" tone="success" />
-        <Stat value="100%" label="Production-risk coverage" tone="success" />
+        <Stat value="80%" label="Validated AI Kit confidence" tone="success" />
         <Stat value={`${prodDocsReduction}%`} label="Token reduction vs Docs/MCP" tone="info" />
       </Grid>
 
@@ -152,17 +155,18 @@ export default function AiKitEvalDashboard() {
         </Card>
 
         <Card>
-          <CardHeader>Metric 2: Checklist Pass Rate</CardHeader>
+          <CardHeader>Metric 2: Skill Rubric vs Validated Confidence</CardHeader>
           <CardBody>
             <Text size="small" tone="secondary">
-              Y-axis: required checks passed. X-axis: ready skill. Higher is better.
-              Source: SME checklist scoring.
+              Y-axis: percent. X-axis: ready skill. Skill rubric can be 100%;
+              validated confidence is capped until SME and sandbox validation.
             </Text>
             <BarChart
               categories={promptCases}
               series={[
-                { name: "AI Kit", data: promptChecklistAi, tone: "success" },
-                { name: "No-context baseline", data: promptChecklistBaseline, tone: "warning" },
+                { name: "AI Kit skill rubric", data: promptChecklistAi, tone: "success" },
+                { name: "AI Kit validated confidence", data: promptConfidenceAi, tone: "info" },
+                { name: "No-context validated confidence", data: promptConfidenceBaseline, tone: "warning" },
               ]}
               height={260}
               yMax={100}
@@ -175,11 +179,11 @@ export default function AiKitEvalDashboard() {
 
       <Grid columns={2} gap={16}>
         <Card>
-          <CardHeader>Metric 3: Production-Risk Coverage</CardHeader>
+          <CardHeader>Metric 3: Production-Risk Validated Confidence</CardHeader>
           <CardBody>
             <Text size="small" tone="secondary">
-              Y-axis: production failure modes covered. X-axis: production-informed case.
-              Higher is better. Source: Slack-derived real-risk cases.
+              Y-axis: validated confidence for production-risk handling.
+              X-axis: production-informed case. Higher is better.
             </Text>
             <BarChart
               categories={productionCases}
@@ -256,7 +260,7 @@ export default function AiKitEvalDashboard() {
       <Stack gap={8}>
         <H2>Production-Informed Decision Table</H2>
         <Table
-          headers={["Variant", "Tokens", "Risk coverage", "Clarifications", "Corrections", "Safety errors", "Decision"]}
+          headers={["Variant", "Tokens", "Validated confidence", "Clarifications", "Corrections", "Safety errors", "Decision"]}
           rows={finalRows.map((row) => [row[0], row[1], row[2], row[3], row[4], row[5], row[6]])}
           columnAlign={["left", "right", "right", "right", "right", "right", "left"]}
           rowTone={["success", "info", "warning"]}
@@ -276,7 +280,7 @@ export default function AiKitEvalDashboard() {
             <H3>Use AI Kit for ready skills; keep Docs/MCP as the fair baseline.</H3>
             <Text>
               AI Kit wins strongly against no-context baseline and still improves production-risk
-              coverage against Docs/MCP baseline. Main value: fewer missed failure modes and fewer
+              confidence against Docs/MCP baseline. Main value: fewer missed failure modes and fewer
               correction loops, not only token savings.
             </Text>
             <Row gap={8} wrap>

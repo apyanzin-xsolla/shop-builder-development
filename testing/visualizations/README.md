@@ -14,8 +14,8 @@ The dashboard contains:
 - KPI strip: AI Kit efficiency gain, token reduction, production-risk coverage.
 - Metric definitions table.
 - Tokens to accepted result chart.
-- Checklist pass rate chart.
-- Production-risk coverage chart.
+- Skill rubric vs validated confidence chart.
+- Production-risk validated confidence chart.
 - Clarifications and manual corrections chart.
 - Safety errors chart.
 - AI Kit efficiency gain chart.

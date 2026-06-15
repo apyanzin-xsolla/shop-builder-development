@@ -15,7 +15,7 @@ Full details:
 
 ### Prompt-Only Pilot
 
-Average AI Kit Efficiency Gain: `67.2%` vs no-context baseline.
+Average AI Kit Efficiency Gain: `65.2%` vs no-context baseline after replacing raw checklist pass with validated confidence.
 
 Transcript-derived estimated tokens to accepted result:
 
@@ -56,16 +56,16 @@ Cases:
 
 Aggregate result:
 
-| Variant | Tokens To Accept | Avg Checklist Pass | Clarifications | Corrections | Safety Errors | Production-Risk Coverage |
+| Variant | Tokens To Accept | Skill Rubric / Validated Confidence | Clarifications | Corrections | Safety Errors | Production-Risk Confidence |
 |---|---:|---:|---:|---:|---:|---:|
-| AI Kit | 1,811 | 100% | 0 | 0 | 0 | 100% |
-| Docs/MCP baseline | 1,978 | 82.5% | 2 | 2 | 0 | 82.5% |
-| No-context baseline | 2,785 | 62.5% | 4 | 6 | 1 | 62.5% |
+| AI Kit | 1,811 | 100% skill rubric / 80% validated | 0 | 0 | 0 | 80% validated |
+| Docs/MCP baseline | 1,978 | 82.5% skill rubric / 67.8% validated | 2 | 2 | 0 | 67.8% validated |
+| No-context baseline | 2,785 | 62.5% skill rubric / 53.8% validated | 4 | 6 | 1 | 53.8% validated |
 
 AI Kit impact:
 
-- vs no-context: `35.0%` estimated token reduction, `+37.5 pp` production-risk coverage.
-- vs Docs/MCP baseline: `8.4%` estimated token reduction, `+17.5 pp` production-risk coverage.
+- vs no-context: `35.0%` estimated token reduction, `+26.2 pp` validated production-risk confidence.
+- vs Docs/MCP baseline: `8.4%` estimated token reduction, `+12.2 pp` validated production-risk confidence.
 
 ## Decision
 
@@ -90,7 +90,7 @@ AI Kit Efficiency Gain =
   0.30 * Token Reduction %
 + 0.25 * Clarification Reduction %
 + 0.20 * Manual Correction Reduction %
-+ 0.15 * Checklist Pass Rate Delta
++ 0.15 * Validated Confidence Delta
 + 0.10 * Safety Error Reduction %
 ```
 

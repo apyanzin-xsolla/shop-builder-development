@@ -26,7 +26,7 @@ AI Kit Efficiency Gain =
   0.30 * Token Reduction %
 + 0.25 * Clarification Reduction %
 + 0.20 * Manual Correction Reduction %
-+ 0.15 * Checklist Pass Rate Delta
++ 0.15 * Validated Confidence Delta
 + 0.10 * Safety Error Reduction %
 ```
 
@@ -37,12 +37,12 @@ Decision threshold:
 
 ## Summary Table
 
-| Case | AI Kit Tokens To Accept | Baseline Tokens To Accept | Token Reduction | AI Kit Clarifications | Baseline Clarifications | AI Kit Checklist | Baseline Checklist | Safety Errors AI Kit / Baseline | Efficiency Gain | Decision |
-|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---|
-| Merchant setup | 534 | 1,397 | 62% | 0 | 2 | 100% | 38% | 0 / 0 | 72.8% | Use AI Kit |
-| Shop orchestration | 1,183 | 2,087 | 43% | 0 | 2 | 100% | 63% | 0 / 0 | 63.5% | Use AI Kit |
-| Catalog design | 1,039 | 1,717 | 39% | 0 | 2 | 100% | 63% | 0 / 0 | 62.4% | Use AI Kit |
-| Webhooks implementation | 1,435 | 1,987 | 28% | 0 | 2 | 100% | 56% | 0 / 2 | 69.9% | Use AI Kit |
+| Case | AI Kit Tokens To Accept | Baseline Tokens To Accept | Token Reduction | AI Kit Clarifications | Baseline Clarifications | AI Kit Skill Rubric | AI Kit Validated Confidence | Baseline Validated Confidence | Safety Errors AI Kit / Baseline | Efficiency Gain | Decision |
+|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---|
+| Merchant setup | 534 | 1,397 | 62% | 0 | 2 | 100% | 80% | 36.6% | 0 / 0 | 70.0% | Use AI Kit |
+| Shop orchestration | 1,183 | 2,087 | 43% | 0 | 2 | 100% | 80% | 54.1% | 0 / 0 | 61.9% | Use AI Kit |
+| Catalog design | 1,039 | 1,717 | 39% | 0 | 2 | 100% | 80% | 54.1% | 0 / 0 | 60.7% | Use AI Kit |
+| Webhooks implementation | 1,435 | 1,987 | 28% | 0 | 2 | 100% | 80% | 49.2% | 0 / 2 | 68.0% | Use AI Kit |
 
 ## What AI Kit Saved
 

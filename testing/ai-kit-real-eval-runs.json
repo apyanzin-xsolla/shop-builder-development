@@ -4,7 +4,10 @@
     "data_type": "real_subagent_outputs_with_estimated_tokens",
     "token_method": "deterministic regex token estimate from actual transcript prompt and response; provider telemetry unavailable",
     "correction_budget": "120 tokens per clarification + 180 tokens per manual correction for tokens-to-acceptance estimate",
-    "privacy": "raw prompts/responses are not included because target GitHub repo is public"
+    "privacy": "raw prompts/responses are not included because target GitHub repo is public",
+    "checklist_interpretation": "checklist_pass_rate is skill-rubric coverage, not final quality confidence",
+    "validated_confidence_formula": "skill_checklist_pass_rate*0.70 + sme_review_score*0.20 + sandbox_execution_score*0.10",
+    "pilot_defaults": "sme_review_score=50, sandbox_execution_score=0 unless independently validated"
   },
   "runs": [
     {
@@ -21,7 +24,11 @@
       "manual_corrections": 0,
       "checklist_pass_rate": 100,
       "safety_errors": 0,
-      "accepted_first_turn": true
+      "accepted_first_turn": true,
+      "skill_checklist_pass_rate": 100,
+      "sme_review_score": 50,
+      "sandbox_execution_score": 0,
+      "validated_confidence_rate": 80.0
     },
     {
       "case_id": "merchant_setup",
@@ -37,7 +44,11 @@
       "manual_corrections": 3,
       "checklist_pass_rate": 38,
       "safety_errors": 0,
-      "accepted_first_turn": false
+      "accepted_first_turn": false,
+      "skill_checklist_pass_rate": 38,
+      "sme_review_score": 50,
+      "sandbox_execution_score": 0,
+      "validated_confidence_rate": 36.6
     },
     {
       "case_id": "shop_orchestration",
@@ -53,7 +64,11 @@
       "manual_corrections": 0,
       "checklist_pass_rate": 100,
       "safety_errors": 0,
-      "accepted_first_turn": true
+      "accepted_first_turn": true,
+      "skill_checklist_pass_rate": 100,
+      "sme_review_score": 50,
+      "sandbox_execution_score": 0,
+      "validated_confidence_rate": 80.0
     },
     {
       "case_id": "shop_orchestration",
@@ -69,7 +84,11 @@
       "manual_corrections": 3,
       "checklist_pass_rate": 63,
       "safety_errors": 0,
-      "accepted_first_turn": false
+      "accepted_first_turn": false,
+      "skill_checklist_pass_rate": 63,
+      "sme_review_score": 50,
+      "sandbox_execution_score": 0,
+      "validated_confidence_rate": 54.1
     },
     {
       "case_id": "catalog_design",
@@ -85,7 +104,11 @@
       "manual_corrections": 0,
       "checklist_pass_rate": 100,
       "safety_errors": 0,
-      "accepted_first_turn": true
+      "accepted_first_turn": true,
+      "skill_checklist_pass_rate": 100,
+      "sme_review_score": 50,
+      "sandbox_execution_score": 0,
+      "validated_confidence_rate": 80.0
     },
     {
       "case_id": "catalog_design",
@@ -101,7 +124,11 @@
       "manual_corrections": 4,
       "checklist_pass_rate": 63,
       "safety_errors": 0,
-      "accepted_first_turn": false
+      "accepted_first_turn": false,
+      "skill_checklist_pass_rate": 63,
+      "sme_review_score": 50,
+      "sandbox_execution_score": 0,
+      "validated_confidence_rate": 54.1
     },
     {
       "case_id": "webhooks_impl",
@@ -117,7 +144,11 @@
       "manual_corrections": 0,
       "checklist_pass_rate": 100,
       "safety_errors": 0,
-      "accepted_first_turn": true
+      "accepted_first_turn": true,
+      "skill_checklist_pass_rate": 100,
+      "sme_review_score": 50,
+      "sandbox_execution_score": 0,
+      "validated_confidence_rate": 80.0
     },
     {
       "case_id": "webhooks_impl",
@@ -133,7 +164,11 @@
       "manual_corrections": 4,
       "checklist_pass_rate": 56,
       "safety_errors": 2,
-      "accepted_first_turn": false
+      "accepted_first_turn": false,
+      "skill_checklist_pass_rate": 56,
+      "sme_review_score": 50,
+      "sandbox_execution_score": 0,
+      "validated_confidence_rate": 49.2
     },
     {
       "case_id": "prod_catalog_pricing",
@@ -149,7 +184,11 @@
       "manual_corrections": 0,
       "checklist_pass_rate": 100,
       "safety_errors": 0,
-      "accepted_first_turn": true
+      "accepted_first_turn": true,
+      "skill_checklist_pass_rate": 100,
+      "sme_review_score": 50,
+      "sandbox_execution_score": 0,
+      "validated_confidence_rate": 80.0
     },
     {
       "case_id": "prod_catalog_pricing",
@@ -165,7 +204,11 @@
       "manual_corrections": 1,
       "checklist_pass_rate": 80,
       "safety_errors": 0,
-      "accepted_first_turn": false
+      "accepted_first_turn": false,
+      "skill_checklist_pass_rate": 80,
+      "sme_review_score": 50,
+      "sandbox_execution_score": 0,
+      "validated_confidence_rate": 66.0
     },
     {
       "case_id": "prod_catalog_pricing",
@@ -181,7 +224,11 @@
       "manual_corrections": 3,
       "checklist_pass_rate": 55,
       "safety_errors": 0,
-      "accepted_first_turn": false
+      "accepted_first_turn": false,
+      "skill_checklist_pass_rate": 55,
+      "sme_review_score": 50,
+      "sandbox_execution_score": 0,
+      "validated_confidence_rate": 48.5
     },
     {
       "case_id": "prod_webhook_500s",
@@ -197,7 +244,11 @@
       "manual_corrections": 0,
       "checklist_pass_rate": 100,
       "safety_errors": 0,
-      "accepted_first_turn": true
+      "accepted_first_turn": true,
+      "skill_checklist_pass_rate": 100,
+      "sme_review_score": 50,
+      "sandbox_execution_score": 0,
+      "validated_confidence_rate": 80.0
     },
     {
       "case_id": "prod_webhook_500s",
@@ -213,7 +264,11 @@
       "manual_corrections": 1,
       "checklist_pass_rate": 85,
       "safety_errors": 0,
-      "accepted_first_turn": false
+      "accepted_first_turn": false,
+      "skill_checklist_pass_rate": 85,
+      "sme_review_score": 50,
+      "sandbox_execution_score": 0,
+      "validated_confidence_rate": 69.5
     },
     {
       "case_id": "prod_webhook_500s",
@@ -229,7 +284,11 @@
       "manual_corrections": 3,
       "checklist_pass_rate": 70,
       "safety_errors": 1,
-      "accepted_first_turn": false
+      "accepted_first_turn": false,
+      "skill_checklist_pass_rate": 70,
+      "sme_review_score": 50,
+      "sandbox_execution_score": 0,
+      "validated_confidence_rate": 59.0
     }
   ]
 }

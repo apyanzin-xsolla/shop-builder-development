@@ -31,7 +31,7 @@ AI Kit Efficiency Gain =
   0.30 * Token Reduction %
 + 0.25 * Clarification Reduction %
 + 0.20 * Manual Correction Reduction %
-+ 0.15 * Checklist Pass Rate Delta
++ 0.15 * Validated Confidence Delta
 + 0.10 * Safety Error Reduction %
 ```
 
@@ -112,28 +112,55 @@ Target:
 - `0` critical corrections for mature skills.
 - `>= 50%` reduction vs baseline.
 
-### 4. Checklist Pass Rate
+### 4. Skill Checklist Pass Rate
 
 Definition:
 
 ```text
-checklist_pass_rate = passed_required_checks / total_required_checks * 100
+skill_checklist_pass_rate = passed_skill_rubric_checks / total_skill_rubric_checks * 100
 ```
 
 Each skill has its own required checklist in `ai-kit-skill-eval-matrix.md`.
 
+Important: this is not final production confidence. It only means the answer covered the expected skill rubric.
+
+### 5. Validated Confidence Rate
+
+Definition:
+
+```text
+validated_confidence_rate =
+  weighted confidence after skill rubric, independent SME status, and sandbox execution status
+```
+
+Recommended pilot formula:
+
+```text
+validated_confidence_rate =
+  skill_checklist_pass_rate * 0.70
++ sme_review_score * 0.20
++ sandbox_execution_score * 0.10
+```
+
+Current pilot defaults:
+
+- `sme_review_score = 50` when not reviewed by SME.
+- `sandbox_execution_score = 0` when no live sandbox execution happened.
+
+This makes a self-graded `100%` skill checklist become `80%` validated confidence until SME and sandbox checks are completed.
+
 Derived:
 
 ```text
-checklist_pass_rate_delta = ai_kit_pass_rate - baseline_pass_rate
+validated_confidence_delta = ai_kit_validated_confidence - baseline_validated_confidence
 ```
 
 Target:
 
-- `>= 90%` pass rate for mature skills.
+- `>= 85%` validated confidence for mature skills.
 - `>= +20 percentage points` vs baseline.
 
-### 5. Safety Error Count
+### 6. Safety Error Count
 
 Definition:
 
