@@ -1,0 +1,197 @@
+name: xsolla-ai-kit-production-like-evals
+date: 2026-06-15
+purpose: >
+  Compare AI-assisted Xsolla integration workflows with AI Kit skills vs
+  baseline agent behavior without AI Kit. This is not a repository QA pass.
+  The eval answers: where does AI Kit create product value, where does it not,
+  and which tool path should we use for each integration scenario.
+
+scope:
+  in:
+    - production-like agent workflows
+    - AI Kit skill activation and output quality
+    - comparison with no-AI-Kit baseline
+    - decision support for launch / pilot
+  out:
+    - filing repository maintenance issues
+    - testing GitHub Actions or generated rule files
+    - judging owners for known unfinished skills
+    - real production merchant changes without explicit sandbox/prod credentials
+
+tools_under_test:
+  with_ai_kit:
+    - Cursor + AI Kit workspace
+    - Claude Code + AI Kit directory
+    - Copilot + AI Kit repository context
+    - Codex CLI + AGENTS.md context
+  without_ai_kit:
+    - same agent prompt without AI Kit context
+    - allowed to use public Xsolla docs if the agent chooses
+
+metrics:
+  primary_metric: ai_kit_efficiency_gain
+  formula: >
+    0.30 * token_reduction_pct
+    + 0.25 * clarification_reduction_pct
+    + 0.20 * manual_correction_reduction_pct
+    + 0.15 * checklist_pass_rate_delta
+    + 0.10 * safety_error_reduction_pct
+  capture_per_run:
+    - total_tokens_to_acceptance
+    - clarification_turns
+    - manual_corrections
+    - tool_lookup_count
+    - checklist_pass_rate
+    - safety_errors
+    - accepted
+  success_thresholds:
+    strong_value: ">= +25% AI Kit Efficiency Gain"
+    useful_needs_improvement: "+10% to +24%"
+    weak_value: "0% to +9%"
+    negative_value: "< 0%"
+  mature_skill_targets:
+    token_reduction_pct: ">= 20%"
+    clarification_reduction_pct: ">= 50%"
+    manual_correction_reduction_pct: ">= 50%"
+    checklist_pass_rate: ">= 90%"
+    safety_errors: 0
+
+cases:
+  - id: merchant_setup
+    skill: merchant-setup
+    status: ready_for_eval
+    production_question: "Can an agent guide a partner from no credentials to a safe sandbox-ready Xsolla project setup?"
+    prompt: >
+      I need to start a sandbox Xsolla integration for a headless game shop.
+      Help me find merchant ID, project ID, generate the right API key, and
+      store credentials safely for local development.
+    expected_with_ai_kit:
+      - checks existing .env first
+      - explains Publisher Account signup path
+      - distinguishes merchant-level and project-level API keys
+      - masks API key
+      - writes only XSOLLA_* variables
+      - adds .env to .gitignore
+    expected_without_ai_kit_risks:
+      - generic signup advice
+      - wrong key scope
+      - missing .env safety
+      - unclear sandbox vs production path
+
+  - id: shop_orchestration
+    skill: shop-setup
+    status: ready_for_eval
+    production_question: "Can an agent plan the correct end-to-end build order for a headless Xsolla shop?"
+    prompt: >
+      Build a full Xsolla headless shop plan for a mobile F2P game. It needs
+      catalog browsing, guest cart, Login, checkout, webhook fulfillment, and
+      production readiness.
+    expected_with_ai_kit:
+      - uses phased plan from catalog to cart to Login to payment to webhook
+      - defaults to Headless Checkout SDK for headless shop
+      - does not skip webhook fulfillment
+      - keeps frontend, backend, and Xsolla API responsibilities separate
+    expected_without_ai_kit_risks:
+      - jumps to payment first
+      - treats Pay Station redirect as only/default path
+      - misses guest cart or cart merge
+      - misses webhook as fulfillment requirement
+
+  - id: catalog_design
+    skill: catalog-design
+    status: ready_for_eval
+    production_question: "Can an agent configure commerce catalog entities correctly and use client APIs for storefront reads?"
+    prompt: >
+      Configure my Xsolla catalog with gems, gem packs, boosters, regional
+      pricing, and a starter bundle. Then explain how the frontend should read
+      and purchase these items.
+    expected_with_ai_kit:
+      - separates Admin API setup from client Catalog API reads
+      - uses virtual currency, VC packages, virtual items, bundles, groups
+      - verifies live schemas through Xsolla MCP/docs
+      - avoids country parameter on client storefront reads
+      - includes cleanup and order confirmation path
+    expected_without_ai_kit_risks:
+      - mixes Admin API into storefront
+      - misses regional price consistency
+      - misses update-replaces-not-merges pitfall
+      - incomplete purchase/order confirmation path
+
+  - id: webhooks_impl
+    skill: webhooks-impl
+    status: ready_for_eval
+    production_question: "Can an agent build safe payment fulfillment webhook handling?"
+    prompt: >
+      Implement an Xsolla webhook handler for a headless shop that grants items
+      after purchase. Use Node.js/Express and make signature verification,
+      retries, and duplicate delivery safe.
+    expected_with_ai_kit:
+      - uses raw request body
+      - verifies lowercase sha1(rawBody + secret)
+      - uses constant-time comparison
+      - rejects invalid signatures with 400 INVALID_SIGNATURE
+      - handles user_validation
+      - grants on order_paid idempotently
+      - avoids double-granting on payment and order_paid
+    expected_without_ai_kit_risks:
+      - reserializes JSON before signature check
+      - returns 200 on invalid signature
+      - non-idempotent fulfillment
+      - double-grants on retry or separate webhook mode
+
+  - id: full_headless_shop
+    skill: shop-setup + domain skills
+    status: partial_ready
+    production_question: "Does AI Kit reduce total time and risk for a complete headless shop build?"
+    prompt: >
+      Create a full sandbox Xsolla headless shop for a mobile F2P game with
+      Login, virtual currency, bundles, embedded checkout, webhook fulfillment,
+      and a simple React storefront.
+    expected_with_ai_kit:
+      - strong orchestration for ready skills
+      - blocks or asks for missing content for Login, payments, store build, design
+      - does not pretend placeholder skills are production-ready
+    expected_without_ai_kit_risks:
+      - plausible but generic architecture
+      - higher chance of wrong endpoint/auth decisions
+      - more manual prompting and documentation lookup
+
+  - id: login_setup
+    skill: login-setup
+    status: excluded_placeholder
+    production_question: "Can AI Kit improve Login integration today?"
+    prompt: "Add Xsolla Login to my headless shop and pass JWT to Store API."
+    expected_with_ai_kit:
+      - excluded until real skill content exists
+    expected_without_ai_kit_risks:
+      - not scored
+
+  - id: payments_config
+    skill: payments-config
+    status: excluded_placeholder
+    production_question: "Can AI Kit improve Pay Station / Headless Checkout setup today?"
+    prompt: "Integrate embedded Xsolla checkout and create a sandbox payment token."
+    expected_with_ai_kit:
+      - excluded until real skill content exists
+    expected_without_ai_kit_risks:
+      - not scored
+
+  - id: store_build
+    skill: store-build
+    status: excluded_placeholder
+    production_question: "Can AI Kit improve storefront implementation today?"
+    prompt: "Build a React storefront using Xsolla catalog, cart, and checkout."
+    expected_with_ai_kit:
+      - excluded until real skill content exists
+    expected_without_ai_kit_risks:
+      - not scored
+
+  - id: shop_design
+    skill: shop-design
+    status: excluded_placeholder
+    production_question: "Can AI Kit improve theme/design implementation today?"
+    prompt: "Apply brand theme tokens to my Xsolla shop."
+    expected_with_ai_kit:
+      - excluded until real skill content exists
+    expected_without_ai_kit_risks:
+      - not scored

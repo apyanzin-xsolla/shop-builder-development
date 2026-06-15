@@ -1,0 +1,130 @@
+{
+  "runs": [
+    {
+      "case_id": "merchant_setup",
+      "variant": "ai_kit",
+      "total_tokens_to_acceptance": 420,
+      "clarification_turns": 0,
+      "manual_corrections": 0,
+      "checklist_pass_rate": 100,
+      "safety_errors": 0
+    },
+    {
+      "case_id": "merchant_setup",
+      "variant": "no_context",
+      "total_tokens_to_acceptance": 880,
+      "clarification_turns": 2,
+      "manual_corrections": 3,
+      "checklist_pass_rate": 38,
+      "safety_errors": 0
+    },
+    {
+      "case_id": "shop_orchestration",
+      "variant": "ai_kit",
+      "total_tokens_to_acceptance": 1000,
+      "clarification_turns": 0,
+      "manual_corrections": 0,
+      "checklist_pass_rate": 100,
+      "safety_errors": 0
+    },
+    {
+      "case_id": "shop_orchestration",
+      "variant": "no_context",
+      "total_tokens_to_acceptance": 2170,
+      "clarification_turns": 2,
+      "manual_corrections": 3,
+      "checklist_pass_rate": 63,
+      "safety_errors": 0
+    },
+    {
+      "case_id": "catalog_design",
+      "variant": "ai_kit",
+      "total_tokens_to_acceptance": 720,
+      "clarification_turns": 0,
+      "manual_corrections": 0,
+      "checklist_pass_rate": 100,
+      "safety_errors": 0
+    },
+    {
+      "case_id": "catalog_design",
+      "variant": "no_context",
+      "total_tokens_to_acceptance": 1150,
+      "clarification_turns": 2,
+      "manual_corrections": 4,
+      "checklist_pass_rate": 63,
+      "safety_errors": 0
+    },
+    {
+      "case_id": "webhooks_impl",
+      "variant": "ai_kit",
+      "total_tokens_to_acceptance": 1090,
+      "clarification_turns": 0,
+      "manual_corrections": 0,
+      "checklist_pass_rate": 100,
+      "safety_errors": 0
+    },
+    {
+      "case_id": "webhooks_impl",
+      "variant": "no_context",
+      "total_tokens_to_acceptance": 1720,
+      "clarification_turns": 2,
+      "manual_corrections": 4,
+      "checklist_pass_rate": 56,
+      "safety_errors": 2
+    },
+    {
+      "case_id": "prod_catalog_pricing",
+      "variant": "ai_kit",
+      "total_tokens_to_acceptance": 460,
+      "clarification_turns": 0,
+      "manual_corrections": 0,
+      "checklist_pass_rate": 100,
+      "safety_errors": 0
+    },
+    {
+      "case_id": "prod_catalog_pricing",
+      "variant": "docs_mcp",
+      "total_tokens_to_acceptance": 590,
+      "clarification_turns": 1,
+      "manual_corrections": 1,
+      "checklist_pass_rate": 80,
+      "safety_errors": 0
+    },
+    {
+      "case_id": "prod_catalog_pricing",
+      "variant": "no_context",
+      "total_tokens_to_acceptance": 1050,
+      "clarification_turns": 2,
+      "manual_corrections": 3,
+      "checklist_pass_rate": 55,
+      "safety_errors": 0
+    },
+    {
+      "case_id": "prod_webhook_500s",
+      "variant": "ai_kit",
+      "total_tokens_to_acceptance": 575,
+      "clarification_turns": 0,
+      "manual_corrections": 0,
+      "checklist_pass_rate": 100,
+      "safety_errors": 0
+    },
+    {
+      "case_id": "prod_webhook_500s",
+      "variant": "docs_mcp",
+      "total_tokens_to_acceptance": 590,
+      "clarification_turns": 1,
+      "manual_corrections": 1,
+      "checklist_pass_rate": 85,
+      "safety_errors": 0
+    },
+    {
+      "case_id": "prod_webhook_500s",
+      "variant": "no_context",
+      "total_tokens_to_acceptance": 1200,
+      "clarification_turns": 2,
+      "manual_corrections": 3,
+      "checklist_pass_rate": 70,
+      "safety_errors": 1
+    }
+  ]
+}
