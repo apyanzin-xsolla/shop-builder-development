@@ -1,0 +1,95 @@
+{
+  "metadata": {
+    "created_at": "2026-06-15",
+    "data_type": "real_subagent_outputs_with_estimated_tokens",
+    "token_method": "deterministic regex token estimate from actual transcript prompt and response; provider telemetry unavailable",
+    "correction_budget": "120 tokens per clarification + 180 tokens per manual correction for tokens-to-acceptance estimate",
+    "privacy": "raw prompts/responses are not included because target GitHub repo is public",
+    "checklist_interpretation": "checklist_pass_rate is skill-rubric coverage, not final quality confidence",
+    "validated_confidence_formula": "skill_checklist_pass_rate*0.70 + sme_review_score*0.20 + sandbox_execution_score*0.10",
+    "pilot_defaults": "sme_review_score=50, sandbox_execution_score=0 unless independently validated"
+  },
+  "aggregate": {
+    "avg_efficiency_gain_pct": 61.1,
+    "ai_tokens": 7813,
+    "baseline_tokens": 11951,
+    "token_reduction_pct": 34.6
+  },
+  "prompt_only": {
+    "cases": [
+      "merchant_setup",
+      "shop_orchestration",
+      "catalog_design",
+      "webhooks_impl"
+    ],
+    "ai_kit_tokens": [
+      534,
+      1183,
+      1039,
+      1435
+    ],
+    "no_context_tokens": [
+      1397,
+      2087,
+      1717,
+      1987
+    ],
+    "ai_kit_validated_confidence_pct": [
+      80.0,
+      80.0,
+      80.0,
+      80.0
+    ],
+    "no_context_validated_confidence_pct": [
+      36.6,
+      54.1,
+      54.1,
+      49.2
+    ]
+  },
+  "production": {
+    "cases": [
+      "prod_catalog_pricing",
+      "prod_webhook_500s"
+    ],
+    "ai_kit_tokens": [
+      1069,
+      742
+    ],
+    "docs_tokens": [
+      1169,
+      809
+    ],
+    "no_context_tokens": [
+      1430,
+      1355
+    ],
+    "ai_kit_validated_confidence_pct": [
+      80.0,
+      80.0
+    ],
+    "docs_validated_confidence_pct": [
+      66.0,
+      69.5
+    ],
+    "no_context_validated_confidence_pct": [
+      48.5,
+      59.0
+    ],
+    "clarifications": [
+      0,
+      2,
+      4
+    ],
+    "manual_corrections": [
+      0,
+      2,
+      6
+    ],
+    "safety_errors": [
+      0,
+      0,
+      1
+    ]
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "type": "mini-site",
+  "displayName": "AI Kit Eval Dashboard",
+  "description": "Production-ready dashboard for comparing AI Kit skills against docs and no-context baselines.",
+  "author": "a.pyanzin@xsolla.com",
+  "owner": "a.pyanzin@xsolla.com",
+  "tags": ["ai-kit", "evals", "skills", "dashboard", "developer-experience"],
+  "createdAt": "2026-06-16"
+}

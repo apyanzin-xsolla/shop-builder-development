@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="980" height="420" viewBox="0 0 980 420">
+<rect width="100%" height="100%" fill="#ffffff"/>
+<text x="64" y="34" font-family="Arial" font-size="22" font-weight="700" fill="#24292f">Corrections and safety errors</text>
+<line x1="64" y1="344" x2="924" y2="344" stroke="#d8dee4"/>
+<line x1="64" y1="64" x2="64" y2="344" stroke="#d8dee4"/>
+<line x1="64" y1="344.0" x2="924" y2="344.0" stroke="#d8dee4" stroke-dasharray="3 3"/>
+<text x="54" y="348.0" font-family="Arial" font-size="11" text-anchor="end" fill="#57606a">0</text>
+<line x1="64" y1="288.0" x2="924" y2="288.0" stroke="#d8dee4" stroke-dasharray="3 3"/>
+<text x="54" y="292.0" font-family="Arial" font-size="11" text-anchor="end" fill="#57606a">1</text>
+<line x1="64" y1="232.0" x2="924" y2="232.0" stroke="#d8dee4" stroke-dasharray="3 3"/>
+<text x="54" y="236.0" font-family="Arial" font-size="11" text-anchor="end" fill="#57606a">3</text>
+<line x1="64" y1="176.0" x2="924" y2="176.0" stroke="#d8dee4" stroke-dasharray="3 3"/>
+<text x="54" y="180.0" font-family="Arial" font-size="11" text-anchor="end" fill="#57606a">4</text>
+<line x1="64" y1="120.0" x2="924" y2="120.0" stroke="#d8dee4" stroke-dasharray="3 3"/>
+<text x="54" y="124.0" font-family="Arial" font-size="11" text-anchor="end" fill="#57606a">6</text>
+<line x1="64" y1="64.0" x2="924" y2="64.0" stroke="#d8dee4" stroke-dasharray="3 3"/>
+<text x="54" y="68.0" font-family="Arial" font-size="11" text-anchor="end" fill="#57606a">7</text>
+<text x="207.3" y="382" font-family="Arial" font-size="12" text-anchor="middle" fill="#57606a">AI Kit</text>
+<rect x="115.6" y="344.0" width="28.0" height="0.0" rx="4" fill="#4f8cff"/>
+<text x="129.6" y="338.0" font-family="Arial" font-size="10" text-anchor="middle" fill="#57606a">0</text>
+<rect x="151.6" y="344.0" width="28.0" height="0.0" rx="4" fill="#d99a21"/>
+<text x="165.6" y="338.0" font-family="Arial" font-size="10" text-anchor="middle" fill="#57606a">0</text>
+<rect x="187.6" y="344.0" width="28.0" height="0.0" rx="4" fill="#e05d5d"/>
+<text x="201.6" y="338.0" font-family="Arial" font-size="10" text-anchor="middle" fill="#57606a">0</text>
+<text x="494.0" y="382" font-family="Arial" font-size="12" text-anchor="middle" fill="#57606a">Docs</text>
+<rect x="402.3" y="264.0" width="28.0" height="80.0" rx="4" fill="#4f8cff"/>
+<text x="416.3" y="258.0" font-family="Arial" font-size="10" text-anchor="middle" fill="#57606a">2</text>
+<rect x="438.3" y="264.0" width="28.0" height="80.0" rx="4" fill="#d99a21"/>
+<text x="452.3" y="258.0" font-family="Arial" font-size="10" text-anchor="middle" fill="#57606a">2</text>
+<rect x="474.3" y="344.0" width="28.0" height="0.0" rx="4" fill="#e05d5d"/>
+<text x="488.3" y="338.0" font-family="Arial" font-size="10" text-anchor="middle" fill="#57606a">0</text>
+<text x="780.7" y="382" font-family="Arial" font-size="12" text-anchor="middle" fill="#57606a">No context</text>
+<rect x="688.9" y="184.0" width="28.0" height="160.0" rx="4" fill="#4f8cff"/>
+<text x="702.9" y="178.0" font-family="Arial" font-size="10" text-anchor="middle" fill="#57606a">4</text>
+<rect x="724.9" y="104.0" width="28.0" height="240.0" rx="4" fill="#d99a21"/>
+<text x="738.9" y="98.0" font-family="Arial" font-size="10" text-anchor="middle" fill="#57606a">6</text>
+<rect x="760.9" y="304.0" width="28.0" height="40.0" rx="4" fill="#e05d5d"/>
+<text x="774.9" y="298.0" font-family="Arial" font-size="10" text-anchor="middle" fill="#57606a">1</text>
+<rect x="64" y="394" width="10" height="10" fill="#4f8cff" rx="2"/>
+<text x="80" y="404" font-family="Arial" font-size="12" fill="#57606a">Clarifications</text>
+<rect x="234" y="394" width="10" height="10" fill="#d99a21" rx="2"/>
+<text x="250" y="404" font-family="Arial" font-size="12" fill="#57606a">Manual corrections</text>
+<rect x="404" y="394" width="10" height="10" fill="#e05d5d" rx="2"/>
+<text x="420" y="404" font-family="Arial" font-size="12" fill="#57606a">Safety errors</text>
+</svg>

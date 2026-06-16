@@ -1,0 +1,21 @@
+{
+  "weights": {
+    "token_reduction_pct": 0.3,
+    "clarification_reduction_pct": 0.25,
+    "manual_correction_reduction_pct": 0.2,
+    "validated_confidence_delta": 0.15,
+    "safety_error_reduction_pct": 0.1
+  },
+  "validated_confidence": {
+    "skill_checklist_weight": 0.7,
+    "sme_review_weight": 0.2,
+    "sandbox_execution_weight": 0.1,
+    "default_sme_review_score": 50,
+    "default_sandbox_execution_score": 0
+  },
+  "decision_thresholds": {
+    "strong_value": 25,
+    "use_with_improvements": 10,
+    "weak_value": 0
+  }
+}

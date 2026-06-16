@@ -1,0 +1,17 @@
+ai_kit_skills:
+  id: ai_kit_skills.v0
+  description: Evaluate whether AI Kit skills improve Xsolla integration answers versus docs/no-context baselines.
+  metrics:
+    - ai_kit_efficiency_gain
+    - token_reduction_pct
+    - clarification_reduction_pct
+    - manual_correction_reduction_pct
+    - validated_confidence_delta
+    - safety_error_reduction_pct
+
+ai_kit_skills.v0:
+  class: ai_kit_evals.eval:AiKitSkillEval
+  args:
+    samples_jsonl: ai_kit_skills/samples.jsonl
+    judge_json: ai_kit_skills/judge.json
+

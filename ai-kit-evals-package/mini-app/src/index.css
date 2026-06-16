@@ -1,0 +1,177 @@
+:root {
+  color: #f4f4f5;
+  background: #0b0d12;
+  font-family:
+    Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background: #0b0d12;
+}
+
+.page {
+  width: min(1440px, 100%);
+  margin: 0 auto;
+  padding: 32px;
+}
+
+.hero {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 24px;
+}
+
+.eyebrow {
+  margin: 0 0 8px;
+  color: #93c5fd;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin-top: 0;
+}
+
+h1 {
+  margin-bottom: 12px;
+  font-size: clamp(32px, 5vw, 56px);
+  line-height: 1;
+}
+
+h2 {
+  margin-bottom: 8px;
+  font-size: 18px;
+}
+
+.subtitle,
+.muted,
+.chart-card p {
+  color: #a1a1aa;
+}
+
+.subtitle {
+  max-width: 780px;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.stats-grid,
+.chart-grid {
+  display: grid;
+  gap: 16px;
+}
+
+.stats-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  margin-bottom: 24px;
+}
+
+.stat-card,
+.chart-card,
+.metrics,
+.decision {
+  border: 1px solid #272b36;
+  border-radius: 16px;
+  background: #111318;
+}
+
+.stat-card {
+  padding: 18px;
+}
+
+.stat-card strong {
+  display: block;
+  margin-bottom: 6px;
+  color: #6ee7b7;
+  font-size: 28px;
+}
+
+.stat-card span {
+  color: #a1a1aa;
+  font-size: 13px;
+}
+
+.metrics,
+.decision {
+  margin-bottom: 24px;
+  padding: 20px;
+}
+
+.metric-list,
+.pill-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.metric-list span,
+.pill {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid #303747;
+  border-radius: 999px;
+  padding: 8px 12px;
+  color: #d4d4d8;
+  background: #171a22;
+  font-size: 13px;
+}
+
+.pill.active {
+  border-color: rgba(110, 231, 183, 0.4);
+  color: #6ee7b7;
+  background: rgba(110, 231, 183, 0.08);
+}
+
+.chart-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin-bottom: 24px;
+}
+
+.chart-card {
+  overflow: hidden;
+}
+
+.chart-card header {
+  border-bottom: 1px solid #272b36;
+  padding: 18px 20px 12px;
+}
+
+.chart-card p {
+  margin-bottom: 0;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.chart-body {
+  padding: 16px;
+}
+
+.decision p {
+  max-width: 900px;
+  line-height: 1.6;
+}
+
+@media (max-width: 960px) {
+  .page {
+    padding: 20px;
+  }
+
+  .stats-grid,
+  .chart-grid {
+    grid-template-columns: 1fr;
+  }
+}
