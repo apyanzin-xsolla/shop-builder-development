@@ -135,7 +135,8 @@ function SafetyBars() {
         <XAxis dataKey="name" tick={{ fill: '#a1a1aa', fontSize: 12 }} />
         <YAxis allowDecimals={false} tick={{ fill: '#a1a1aa', fontSize: 12 }} />
         <Tooltip contentStyle={{ background: '#111318', border: '1px solid #2a2f3a', color: '#f4f4f5' }} />
-        <Bar dataKey="value" radius={[4, 4, 0, 0]}>
+        <Legend />
+        <Bar dataKey="value" name="Safety errors" radius={[4, 4, 0, 0]}>
           {safetyRows.map((row) => (
             <Cell key={row.name} fill={row.name === 'No context' ? '#f87171' : '#6ee7b7'} />
           ))}
